@@ -30,3 +30,7 @@ Edit the Tailwind config in `index.html` to change the primary color. All compon
 ## License
 
 MIT
+
+## Aspen Grove
+Standalone product package (**MIT**). Meta mesh: [aspen-grove](https://github.com/AbsolutionAI/aspen-grove).  
+Third-party: `THIRD_PARTY.md`. Run `make smoke`.

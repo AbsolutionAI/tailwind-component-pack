@@ -1,22 +1,8 @@
-name: CI
+name: ci
 on: [push, pull_request]
-
 jobs:
-  validate:
+  smoke:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check HTML files
-        run: |
-          for f in $(find . -name '*.html' -not -path './node_modules/*'); do
-            echo "Checking: $f"
-            python3 -c "
-import sys
-with open('$f') as fh:
-    content = fh.read()
-    if '<!DOCTYPE html>' not in content.upper():
-        print(f'WARNING: $f missing DOCTYPE')
-    if content.count('<html') == 0:
-        print(f'WARNING: $f missing html tag')
-" || true
-          done
+      - run: make smoke
